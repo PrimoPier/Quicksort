@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-namespace fs = std::filesystem;
+using namespace std;
 
 void swap(int *a, int i, int j) {
 	int temp = a[i];
@@ -32,12 +32,10 @@ void quicksort(int *input, int start, int end) {
 }
 
 int main() {
-	std::cout << "Current path is: " << fs::current_path() << '\n';
-
-	std::fstream file;
+	fstream file;
 	file.open("input.txt");
 	if (!file) {
-		std::cerr << "Error opening file." << '\n';
+		cerr << "Error opening file." << '\n';
 		return 1; // Exit the program with an error code
 	}
 
@@ -50,16 +48,16 @@ int main() {
 		file >> input[i];
 	}
 
-	std::cout << "Display Input Data: ";
+	cout << "Display Input Data: ";
 	for (int i=0; i<size; i++) {
-		std::cout << input[i] << " ";
+		cout << input[i] << " ";
 	}
 
 	quicksort(input, 0, size-1);
 
-	std::cout << "\n\nDisplay Ascending Order: ";
+	cout << "\n\nDisplay Ascending Order: ";
 	for (int i=0; i<size; i++) {
-		std::cout << input[i] << " ";
+		cout << input[i] << " ";
 	}
 
 	delete[] input;
